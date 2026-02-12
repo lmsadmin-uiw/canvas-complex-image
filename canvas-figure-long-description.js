@@ -40,7 +40,7 @@
   }
 
   // ── TinyMCE Configuration ─────────────────────────────────────────────
-  // Canvas strips HTML elements it doesn't recognise. We add <figure>,
+  // Canvas strips HTML elements it doesn't recognise. This adds <figure>,
   // <figcaption>, <details>, and <summary> to TinyMCE's allow-list so the
   // editor doesn't discard them on paste or save.
 
@@ -68,7 +68,7 @@
   }
 
   // ── Dialog Detection ──────────────────────────────────────────────────
-  // Canvas renders the "Upload Image" dialog lazily via React. We use a
+  // Canvas renders the "Upload Image" dialog lazily via React. This uses a
   // MutationObserver on <body> to detect it and inject our custom fields.
 
   function observeDialogs() {
@@ -340,7 +340,7 @@
 
   // ── Image Insertion Watcher ───────────────────────────────────────────
   // After Canvas finishes uploading the file it inserts a bare <img> into
-  // TinyMCE. We poll until we find it, then wrap it in <figure> markup.
+  // TinyMCE. This polls until it's found, then wraps it in <figure> markup.
 
   function watchForImageCompletion() {
     var attempts = 0;

@@ -2,6 +2,10 @@
 
 A custom JavaScript addition for Canvas LMS that gives content authors a way to attach semantic, WCAG-compliant long descriptions to complex images (charts, diagrams, infographics) directly from the Rich Content Editor's existing "Upload Image" dialog.
 
+## Why?
+
+This project emerged in response to the 2024 DOJ ruling that establishes WCAG 2.1 Level AA as the accessibility standard for web content. At present, Instructure does not provide a built‑in way to add long descriptions to complex images, and requiring users to manually edit HTML is neither scalable nor user‑friendly. This project explores a better approach: making long descriptions a first‑class part of the image upload process.
+
 ## What It Does
 
 When a user opens the **Upload Image** dialog in the Canvas Rich Content Editor, this script injects two optional fields below the existing alt text and decorative image controls:
@@ -49,10 +53,11 @@ The generated `<figure>` uses `max-width: fit-content`, which means:
 
 ## Safety & Trade-offs
 
-This approach uses Canvas's **custom JavaScript theme file**, which is a supported extension point. Some things to be aware of:
+This approach uses Canvas's **custom JavaScript theme file**, which is a supported approach. Some things to be aware of:
 
 **Advantages over a dedicated LTI tool:**
 - Zero infrastructure — no server, no hosting, no maintenance
+- Data is not sent to, nor stored temporarily 
 - Works inside the native editor workflow; authors don't leave Canvas
 - Output is plain HTML stored in Canvas content; it survives course copies, exports, and imports
 - No authentication, API keys, or LTI registration required
@@ -63,11 +68,9 @@ This approach uses Canvas's **custom JavaScript theme file**, which is a support
 - The script uses Canvas's InstUI CSS class names (e.g., `css-bym9jl-formFieldLayout`) to match the native look. These are generated class names that could change across Canvas releases.
 - Content authors must use this upload flow to get `<figure>` markup. Images added via other methods (drag-and-drop, URL embed) are not intercepted.
 
-**If stability is a hard requirement**, a dedicated LTI tool that generates its own UI is more durable — but comes with hosting, authentication, and maintenance overhead. For most institutions, the custom JS approach is the practical choice and has been stable across multiple Canvas release cycles.
-
 ## Compatibility
 
-- Tested on Canvas LMS (cloud-hosted) with the New Rich Content Editor
+- Tested on Canvas LMS with the New Rich Content Editor
 - Requires jQuery and TinyMCE (both provided by Canvas)
 - No external dependencies
 

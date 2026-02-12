@@ -8,10 +8,10 @@
    descriptions to complex images (charts, diagrams, infographics, etc.).
 
    Deployment: Add this script to your Canvas theme's custom JavaScript file
-   (Admin → Themes → Edit → Upload JavaScript). It runs on every page that
+   (Admin → Themes → Edit Theme → Upload JavaScript). It runs on every page that
    loads the Rich Content Editor.
 
-   Repository: https://github.com/<your-org>/canvas-figure-long-description
+   Repository: https://github.com/lmsadmin-uiw/canvas-complex-image
    License:    MIT
    ======================================================================== */
 
